@@ -1,5 +1,9 @@
 import React from "react";
 import "./App.css";
+import { Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 function App(): React.JSX.Element {
     return (
@@ -7,10 +11,47 @@ function App(): React.JSX.Element {
             <header className="App-header">
                 UM COS420 with React Hooks and TypeScript
             </header>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. This is Dawson Ferguson, Hello World
-            </p>
+
+            <h1> Head </h1>
+
+            <img src="wave.png" alt="Waving hand" />
+
+            <ol>
+                <li> This is</li>
+                <li> certainly </li>
+                <li> a list.</li>
+            </ol>
+
+            <Button
+                onClick={() => {
+                    console.log("Hello World!");
+                }}
+            >
+                Log Hello World
+            </Button>
+
+            <Container>
+                <Row>
+                    <Col>
+                        <div
+                            style={{
+                                width: "60px",
+                                height: "120px",
+                                backgroundColor: "red",
+                            }}
+                        ></div>
+                    </Col>
+                    <Col>
+                        <div
+                            style={{
+                                width: "60px",
+                                height: "120px",
+                                backgroundColor: "red",
+                            }}
+                        ></div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }
