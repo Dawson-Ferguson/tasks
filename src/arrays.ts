@@ -102,7 +102,16 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    const summation = addends.reduce(
+        (addend: number, num: number): number => addend + num,
+        0,
+    );
+    const stringConc = addends.join("+");
+    if (summation === 0) {
+        return "0=0";
+    } else {
+        return summation + "=" + stringConc;
+    }
 }
 
 /**
@@ -115,5 +124,19 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let sum: number = 0;
+    let index: number = 0;
+    values.some((value) => {
+        if (value < 0) {
+            index += 1;
+            return true;
+        } else {
+            index += 1;
+            sum += value;
+            return false;
+        }
+    });
+    const final = [...values];
+    final.splice(index, 0, sum);
+    return final;
 }
