@@ -8,7 +8,7 @@
 export function bookEndList(numbers: number[]): number[] {
     if (numbers.length > 2) {
         numbers = [numbers[0], numbers[numbers.length - 1]];
-    } else if (numbers.length == 1) {
+    } else if (numbers.length === 1) {
         numbers = [...numbers, numbers[0]];
     } else {
         numbers = [];
@@ -30,8 +30,8 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    const newStringsToIntegers = numbers.map((numbers: string): number =>
-        Number(numbers) ? Number(numbers) : 0,
+    const newStringsToIntegers = numbers.map((number: string): number =>
+        Number(number) ? Number(number) : 0,
     );
     return newStringsToIntegers;
 }
@@ -44,7 +44,13 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const newRemoveDollars = amounts.map((amount: string): string =>
+        amount.includes("$") ? amount.replace("$", "") : amount,
+    );
+    const newNewRemoveDollars = newRemoveDollars.map(
+        (amounts: string): number => (Number(amounts) ? Number(amounts) : 0),
+    );
+    return newNewRemoveDollars;
 };
 
 /**
