@@ -171,5 +171,22 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    return [];
+    return questions.map(
+        (question: Question): Question =>
+            question.id === targetId ?
+                {
+                    ...question,
+                    options:
+                        targetOptionIndex === -1 ?
+                            [...question.options, newOption]
+                        :   [
+                                ...question.options.slice(0, targetOptionIndex),
+                                newOption,
+                                ...question.options.slice(
+                                    targetOptionIndex + 1,
+                                ),
+                            ],
+                }
+            :   { ...question },
+    );
 }
